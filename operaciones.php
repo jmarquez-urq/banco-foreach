@@ -2,6 +2,7 @@
 <html lang="es-ar">
 <head>
 <meta charset="UTF-8">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.1/jquery.min.js"></script>
 <title>Orientación a objetos</title>
 </head>
 <body>
@@ -20,6 +21,7 @@
     <label for="monto">Monto: </label>
     <input name="monto" type="number"><br>
     <input type="submit" value="Realizar operación">
+    <input type="submit" value="Consultar Movimientos">
 </form>
 
 </body>

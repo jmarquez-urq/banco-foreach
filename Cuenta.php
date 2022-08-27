@@ -15,6 +15,8 @@ abstract class Cuenta
      */
     protected $titular;
 
+    protected $arrayMovimientos = [];
+
     /**
      * Constructor
      * @params int $numero
@@ -61,5 +63,28 @@ abstract class Cuenta
     public function getSaldo()
     {
         return $this->saldo;
+    }
+
+    public function saveMovimientos($monto, $tipo) {
+
+        if ($tipo== "e") {
+
+            array_push($arrayMovimientos, "-".$monto);
+        }
+
+        if ($tipo== "d") {
+
+            array_push($arrayMovimientos, "".$monto);
+        }
+
+    }
+
+    public function muestraMovimientos($arrayMovimientos){
+
+        foreach($arrayMovimientos as $movimiento) {
+
+            echo $movimiento;
+
+        }
     }
 }
