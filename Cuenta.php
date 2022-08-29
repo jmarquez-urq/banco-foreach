@@ -15,6 +15,8 @@ abstract class Cuenta
      */
     protected $titular;
 
+    protected $historialOperaciones;
+
     /**
      * Constructor
      * @params int $numero
@@ -26,6 +28,8 @@ abstract class Cuenta
         $this->numero = $numero;
         $this->titular = $titular;
         $this->saldo = $saldo;
+        $this->historialOperaciones = [$saldo];
+
     }
 
     
