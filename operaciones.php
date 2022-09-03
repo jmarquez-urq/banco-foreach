@@ -21,7 +21,11 @@
     <input name="monto" type="number"><br>
     <input type="submit" value="Realizar operación">
 </form>
-
+<?php
+session_start();
+$_SESSION['cuenta'] = serialize($cuenta);
+$cuenta.getTransacciones(); 
+?>
 </body>
 </html>
 
