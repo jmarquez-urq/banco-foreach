@@ -8,6 +8,11 @@
 <h1>Home banking</h1>
 <p id="mensaje" style="color:red;">
 <?php if (isset($_GET['m'])) { echo $_GET['m'];} ?>
+<?php
+    if (isset($_GET['mov'])){
+        echo "<br>".$_GET['mov'];
+    }  
+?>
 </p>
 <form action="operacion.php" method="post">
     <label for="saldo">Saldo de la cuenta:</label>
