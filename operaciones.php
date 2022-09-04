@@ -11,7 +11,7 @@
 <?php
     if (isset($_GET['mov'])){
         echo "<br>".$_GET['mov'];
-    }  
+    }   
 ?>
 </p>
 <form action="operacion.php" method="post">
