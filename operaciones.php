@@ -19,7 +19,10 @@
     </select><br>
     <label for="monto">Monto: </label>
     <input name="monto" type="number"><br>
-    <input type="submit" value="Realizar operación">
+    <input type="submit" name="rc" value="Realizar operación"><br><br>
+    <input type="submit" name="um" value="Mostrar Ult Movim" >
+    
+    <p > <?php if (isset($_GET['u'])) { echo $_GET['u'];} ?> </p>
 </form>
 
 </body>
