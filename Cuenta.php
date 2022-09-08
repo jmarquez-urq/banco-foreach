@@ -1,5 +1,9 @@
 <?php
 
+/*
+SE DEFINE LA ZONA HORARIA LOCAL
+*/
+    date_default_timezone_set('America/Argentina/Buenos_Aires');
 abstract class Cuenta
 {
     /**
@@ -14,6 +18,16 @@ abstract class Cuenta
      * @var string $titular Nombre de la persona titular de la cuenta
      */
     protected $titular;
+    /*
+SE CREA $MOVIM QUE ALMACENARÁ LOS MOVIMIENTOS
+*/
+    protected $movim = array();
+/*
+/*
+SE CREA $SHOW QUE MOSTRARA LOS MOVIMIENTOS EN TEXTO
+*/
+        protected $show;
+
 
     /**
      * Constructor
@@ -26,8 +40,16 @@ abstract class Cuenta
         $this->numero = $numero;
         $this->titular = $titular;
         $this->saldo = $saldo;
+        /*
+A $MOVIM SE LE ASIGNA POR DEFECTO EL MONTO Y LA FECHA CON LA QUE FUÉ CREADA LA CUENTA.
+*/
+        $this->movim = [ date('d-m-Y h:i:s a', time())." --------------- "."%2b".$saldo];
+/*
+A $SHOW SE INICIALIZA COMO STRING VACIO
+*/
+        $this->show = "";
     }
-
+    
     
     /**
      * Permite realizar un depósito, incrementando el saldo de la cuenta
