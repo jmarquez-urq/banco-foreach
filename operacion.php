@@ -2,12 +2,10 @@
 require_once 'CajaAhorro.php';
 require_once 'CuentaCorriente.php';
 
-
 //Indicamos que continuamos con la sesión iniciada anteriormente...
 session_start();
 //... y recuperamos la cuenta del usuario cuya sesión está activa.
 $cuenta= unserialize($_SESSION['cuenta']);
-
 
 $mensaje="Operación no realizada";
 switch($_POST["tipo"]) {
@@ -25,7 +23,6 @@ switch($_POST["tipo"]) {
         $mensaje="Operacion inexistente";
         break;                
 }
-
 
 //Sobreescribo la variable de sesión con los nuevos datos.
 $_SESSION['cuenta'] = serialize($cuenta);

@@ -21,7 +21,8 @@
     <input name="monto" type="number"><br>
     <input type="submit" value="Realizar operación">
 </form>
-
+<br>
+<a href="HistorialTransacciones.php"><button>Historial Transacciones</button></a>
 </body>
 </html>
 
