@@ -38,6 +38,7 @@ abstract class Cuenta
     public function depositar($monto)
     {
         $this->saldo += $monto;
+        $this->registrarMovimiento($monto, "d");
         return "El depósito se realizó correctamente.";
     }
 
@@ -50,6 +51,7 @@ abstract class Cuenta
      */
     public function extraer($monto) {
         $this->saldo -= $monto;
+        $this->registrarMovimiento($monto, "e");
         return "Extracción realizada correctamente.";
     }
 
