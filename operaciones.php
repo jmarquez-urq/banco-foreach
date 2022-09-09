@@ -21,11 +21,8 @@
     <input name="monto" type="number"><br>
     <input type="submit" value="Realizar operación">
 </form>
-<?php
-session_start();
-$_SESSION['cuenta'] = serialize($cuenta);
-$cuenta.getTransacciones(); 
-?>
+<br>
+<a href="HistorialTransacciones.php"><button>Historial Transacciones</button></a>
 </body>
 </html>
 
