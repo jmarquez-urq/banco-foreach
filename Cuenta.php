@@ -60,8 +60,19 @@ A $SHOW SE INICIALIZA COMO STRING VACIO
     public function depositar($monto)
     {
         $this->saldo += $monto;
+        $this->saldo += $monto;
+        /*
+        SE VA LLENANDO EL ARRAY $MOVIM CON CADA MOVIMIENTO DE PLATA.
+        SE USA CON ARRAY_UNSHIFT PARA QUE SE ALMACENE DE ADELANTE HACIA ATRAS, PARA QUE MUESTRE
+        EL ULTIMO MOVIMIENTO PRIMERO EN LA LISTA.
+        CADA ELEMENTO DEL ARRAY TIENE UNA CONCATENACION DE FECHA, HORA, LOS PUNTITOS PARA SEPARAR Y
+        EL MONTO QUE SE DEPOSITÓ. ASI SE MUESTRA EN LA PANTALLA.
+        EL SPAN ES PARA AGREGARLE UN POCO DE ESTILO Y NO SE VEA TODO NEGRO.
+        */
+        array_unshift($this->movim,"<span style='color:green;'>". date('d-m-Y h:i:s a', time())." ................. ". '%2b'.$monto."</span>");
         return "El depósito se realizó correctamente.";
     }
+    
 
     /**
      * Permite realizar una extracción, disminuyendo el saldo de la cuenta
@@ -72,7 +83,11 @@ A $SHOW SE INICIALIZA COMO STRING VACIO
      */
     public function extraer($monto) {
         $this->saldo -= $monto;
-        return "Extracción realizada correctamente.";
+ /*
+LO MISMO QUE EL ARRAY UNSHIFT ANTERIOR PERO CON EXTRACCION.
+*/
+    array_unshift($this->movim,"<span style='color:red;'>". date('d-m-Y h:i:s a', time())." ................. ". ' -'.$monto."</span>");
+    return "Extracción realizada correctamente.";
     }
 
     /**
@@ -84,4 +99,21 @@ A $SHOW SE INICIALIZA COMO STRING VACIO
     {
         return $this->saldo;
     }
+    
+/*
+SE CREA ESTA FUNCION QUE LE ASIGNA A $SHOW LOS MOVIENTOS DE $MOVIM.
+LOS CONCATENA Y LOS MANDA COMO STRING A LA PAG PRINCIPAL PARA QUE SE MUESTRE EN PANTALLA.
+*/
+public function mostrarUltim(){
+
+    $this->show= "";
+
+    foreach ($this->movim as $value) {
+             
+        $this->show.="$value<br>";
+    }
+    
+    return $this->show;
+}
+
 }
