@@ -1,3 +1,13 @@
+<?php
+require_once 'CajaAhorro.php';
+require_once 'CuentaCorriente.php';
+
+
+//Indicamos que continuamos con la sesión iniciada anteriormente...
+session_start();
+//... y recuperamos la cuenta del usuario cuya sesión está activa.
+$cuenta= unserialize($_SESSION['cuenta']);
+?>
 <!DOCTYPE html>
 <html lang="es-ar">
 <head>
@@ -21,7 +31,11 @@
     <input name="monto" type="number"><br>
     <input type="submit" value="Realizar operación">
 </form>
-
+<ul>
+    <?php
+        $cuenta->movimientosCuenta();
+    ?>
+</ul>
 </body>
 </html>
 

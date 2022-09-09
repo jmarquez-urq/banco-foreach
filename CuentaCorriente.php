@@ -44,6 +44,7 @@ class CuentaCorriente extends Cuenta
             return "Tope de descubierto excedido";
         }
         else {
+            $this->movimiento[] = [(-1)*$monto];
             return parent::extraer($monto);
         }
     }
