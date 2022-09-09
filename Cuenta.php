@@ -64,4 +64,17 @@ abstract class Cuenta
     {
         return $this->saldo;
     }
+
+    public function registrarMovimiento($m, $op){
+        switch($op){
+            case "e":
+                array_push($this->movimientos, -1 * abs($m));
+                break;
+            case "d":
+                array_push($this->movimientos, $m);
+                break;
+        }
+
+    }
+
 }
