@@ -15,6 +15,8 @@ abstract class Cuenta
      */
     protected $titular;
 
+    protected $movimientos = array();
+
     /**
      * Constructor
      * @params int $numero
@@ -38,6 +40,7 @@ abstract class Cuenta
     public function depositar($monto)
     {
         $this->saldo += $monto;
+        array_push($this->movimientos, $monto);
         return "El depósito se realizó correctamente.";
     }
 
@@ -61,5 +64,13 @@ abstract class Cuenta
     public function getSaldo()
     {
         return $this->saldo;
+    }
+
+    public function getMovimientos() {
+        $string = '';
+        foreach($this->movimientos as $m){
+            $string .= "$m | ";
+        }
+        return $string;
     }
 }
