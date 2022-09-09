@@ -62,4 +62,16 @@ abstract class Cuenta
     {
         return $this->saldo;
     }
+
+    public function getMovimientos(){
+        $contenido = "";
+        for($i = 0; $i < count($this->movimientos); $i++){
+            if($i != 0){
+                $contenido = $contenido . ", " . $this->movimientos[$i];
+            }
+            else $contenido = $contenido . $this->movimientos[$i];
+        }
+        return $contenido;
+    }
+
 }
