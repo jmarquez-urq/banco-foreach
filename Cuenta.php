@@ -31,7 +31,6 @@ abstract class Cuenta
         $this->transacciones = $transacciones;
     }
 
-    
     /**
      * Permite realizar un depósito, incrementando el saldo de la cuenta
      *
@@ -41,10 +40,9 @@ abstract class Cuenta
     public function depositar($monto)
     {
         $this->saldo += $monto;
+        $this->transacciones[] = $monto;
         return "El depósito se realizó correctamente.";
     }
-    //Poner un mas en array.
-
 
     /**
      * Permite realizar una extracción, disminuyendo el saldo de la cuenta
@@ -53,11 +51,12 @@ abstract class Cuenta
      * @return string Mensaje que especifica el resultado de la operación.
      * 
      */
-    public function extraer($monto) {
+    public function extraer($monto)
+    {
         $this->saldo -= $monto;
+        $this->transacciones [] = (-1)* $monto;
         return "Extracción realizada correctamente.";
     }
-    //Poner un menos en array.
 
     /**
      * Permite obtener el saldo.
@@ -67,5 +66,10 @@ abstract class Cuenta
     public function getSaldo()
     {
         return $this->saldo;
+    }
+
+    public function getTransacciones()
+    {
+        return $this->transacciones;
     }
 }
