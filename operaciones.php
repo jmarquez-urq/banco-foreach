@@ -1,3 +1,13 @@
+<?php
+require_once 'CajaAhorro.php';
+require_once 'CuentaCorriente.php';
+require_once 'Cuenta.php';
+require_once 'operacion.php';
+require_once 'index.html';
+
+session_start();
+$cuenta = unserialize($_SESSION['cuenta']);
+?>
 <!DOCTYPE html>
 <html lang="es-ar">
 <head>
@@ -10,8 +20,8 @@
 <?php if (isset($_GET['m'])) { echo $_GET['m'];} ?>
 </p>
 <form action="operacion.php" method="post">
-    <label for="saldo">Saldo de la cuenta:</label>
-    <input name="saldo" id="saldo" readonly value="<?php echo $_GET['s'];  ?>"><br>
+    <label for="saldo">Saldo de la cuenta: </label>
+    <input name="saldo" id="saldo" readonly value="<?php echo $_GET['saldo']  ?>"><br>
     <label for="tipo">Tipo de operación: </label>
     <select name="tipo">
         <option value="e">Extracción</option>
