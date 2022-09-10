@@ -23,9 +23,9 @@ class CajaAhorro extends Cuenta
      * @params int $saldo
      * @params int $tope 
      */
-    public function __construct($numero, $titular, $saldo, $tope = 2000)
+    public function __construct($numero, $titular, $saldo, $tope = 2000, $transacciones)
     {
-        parent::__construct($numero, $titular, $saldo);
+        parent::__construct($numero, $titular, $saldo, $transacciones);
         $this->topeExtraccion = $tope;
     }
 
