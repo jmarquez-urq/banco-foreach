@@ -15,6 +15,8 @@ abstract class Cuenta
      */
     protected $titular;
 
+    protected $transacciones = array();
+
     /**
      * Constructor
      * @params int $numero
@@ -38,6 +40,7 @@ abstract class Cuenta
     public function depositar($monto)
     {
         $this->saldo += $monto;
+        array_push($this->transacciones, $monto);
         return "El depósito se realizó correctamente.";
     }
 
@@ -50,6 +53,7 @@ abstract class Cuenta
      */
     public function extraer($monto) {
         $this->saldo -= $monto;
+        array_push($this->transacciones, $monto * -1);
         return "Extracción realizada correctamente.";
     }
 
@@ -61,5 +65,15 @@ abstract class Cuenta
     public function getSaldo()
     {
         return $this->saldo;
+    }
+
+    public function getTransaccion()
+    {
+        $str = '';
+        foreach($this->transacciones as $transaccion)
+        {
+            $str .= "$transaccion | ";
+        }
+        return $str;
     }
 }
