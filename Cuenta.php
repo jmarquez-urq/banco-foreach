@@ -14,7 +14,8 @@ abstract class Cuenta
      * @var string $titular Nombre de la persona titular de la cuenta
      */
     protected $titular;
-
+    protected $transacciones = [];
+        
     /**
      * Constructor
      * @params int $numero
@@ -26,6 +27,7 @@ abstract class Cuenta
         $this->numero = $numero;
         $this->titular = $titular;
         $this->saldo = $saldo;
+        $this->transacciones = $transacciones;
     }
 
     
@@ -38,6 +40,7 @@ abstract class Cuenta
     public function depositar($monto)
     {
         $this->saldo += $monto;
+        array_push($this->transacciones; "+")
         return "El depósito se realizó correctamente.";
     }
 
@@ -50,6 +53,7 @@ abstract class Cuenta
      */
     public function extraer($monto) {
         $this->saldo -= $monto;
+        array_push($this->transacciones; "-")
         return "Extracción realizada correctamente.";
     }
 
@@ -62,4 +66,8 @@ abstract class Cuenta
     {
         return $this->saldo;
     }
+    
+    public function get Transacciones()
+    {    
+        return $this->transacciones;
 }
