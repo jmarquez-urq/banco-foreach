@@ -26,9 +26,11 @@ switch($_POST["tipo"]) {
         break;                
 }
 
-
 //Sobreescribo la variable de sesión con los nuevos datos.
-$_SESSION['cuenta'] = serialize($cuenta);
-$redirigir = 'operaciones.php?s='.$cuenta->getSaldo()."&m=$mensaje";
+
+//llamamos a cuenta y a la funcion getTransaccion
+$_SESSION['cuenta'] = serialize($cuenta);                          
+$redirigir = 'operaciones.php?s='.$cuenta->getSaldo()."&m=$mensaje"."&trans=".$cuenta->getTransaccion();
 
 header("Location: $redirigir");
+
