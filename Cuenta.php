@@ -1,5 +1,4 @@
 <?php
-
 abstract class Cuenta
 {
     /**
@@ -21,11 +20,17 @@ abstract class Cuenta
      * @params string $titular
      * @params int $saldo
      */
+
+
+    //MEJORA-------------------//
+    protected $oper = [];
+    
     public function __construct($numero, $titular, $saldo)
     {
         $this->numero = $numero;
         $this->titular = $titular;
         $this->saldo = $saldo;
+        $this->oper = [$saldo]; 
     }
 
     
@@ -38,6 +43,7 @@ abstract class Cuenta
     public function depositar($monto)
     {
         $this->saldo += $monto;
+        $this->oper[] = $monto;
         return "El depósito se realizó correctamente.";
     }
 
@@ -50,6 +56,7 @@ abstract class Cuenta
      */
     public function extraer($monto) {
         $this->saldo -= $monto;
+        $this->oper [] = (-1)*$monto;
         return "Extracción realizada correctamente.";
     }
 
@@ -61,5 +68,14 @@ abstract class Cuenta
     public function getSaldo()
     {
         return $this->saldo;
+    }
+
+
+    //metodo verHistorial
+
+    public function verHistorial(){
+        foreach ($this->oper as $movimiento){
+            echo $movimiento ."<br>";
+        }
     }
 }
