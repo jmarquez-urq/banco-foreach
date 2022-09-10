@@ -62,4 +62,15 @@ abstract class Cuenta
     {
         return $this->saldo;
     }
+    
+    public function guardarMovimiento($monto, $operacion){
+        if($operacion == "e"){
+            $movimiento = "-" . $monto;
+            array_push($this->movimientos, $movimiento);
+        }
+        else{
+            $movimiento = "+" . $monto;
+            array_push($this->movimientos, $movimiento);
+        }
+    }
 }
