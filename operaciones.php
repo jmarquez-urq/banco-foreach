@@ -21,7 +21,6 @@
     <input name="monto" type="number"><br>
     <input type="submit" value="Realizar operación">
 </form>
-
+<a href="Movimientos.php"><button>Historial  de movimientos</button></a>
 </body>
 </html>
-

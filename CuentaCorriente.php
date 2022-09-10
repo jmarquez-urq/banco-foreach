@@ -23,9 +23,9 @@ class CuentaCorriente extends Cuenta
      * @params int $saldo
      * @params int $tope 
      */
-    public function __construct($numero, $titular, $saldo, $tope = 2000)
+    public function __construct($numero, $titular, $saldo, $transacciones, $tope = 2000)
     {
-        parent::__construct($numero, $titular, $saldo);
+        parent::__construct($numero, $titular, $saldo, $transacciones);
         $this->topeDescubierto = $tope;
     }
 
@@ -39,13 +39,16 @@ class CuentaCorriente extends Cuenta
      * @return string Mensaje que especifica el resultado de la operación.
      * 
      */
-    public function extraer($monto) {
-        if ( $monto > $this->saldo + $this->topeDescubierto) {
+    public function extraer($monto)
+    {
+        if ( $monto > $this->saldo + $this->topeDescubierto)
+        {
             return "Tope de descubierto excedido";
         }
-        else {
+        else
+        {
             return parent::extraer($monto);
         }
     }
-
 }
+?>

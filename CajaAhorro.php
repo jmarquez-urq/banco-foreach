@@ -23,9 +23,9 @@ class CajaAhorro extends Cuenta
      * @params int $saldo
      * @params int $tope 
      */
-    public function __construct($numero, $titular, $saldo, $tope = 2000)
+    public function __construct($numero, $titular, $saldo, $transacciones, $tope = 2000)
     {
-        parent::__construct($numero, $titular, $saldo);
+        parent::__construct($numero, $titular, $saldo, $transacciones);
         $this->topeExtraccion = $tope;
     }
 
@@ -37,27 +37,20 @@ class CajaAhorro extends Cuenta
      * @return string Mensaje que especifica el resultado de la operación.
      * 
      */
-    public function extraer($monto) {
-        if ($monto > $this->topeExtraccion) {
+    public function extraer($monto)
+    {
+        if ($monto > $this->topeExtraccion)
+        {
             return "Tope de extracción excedido";
         }
-        else if ( $monto > $this->saldo ) {
+        else if ( $monto > $this->saldo )
+        {
             return "Saldo insuficiente";
         }
-        else {
+        else
+        {
             return parent::extraer($monto);
         }
     }
-
 }
-
-
-
-
-
-
-
-
-
-
-
+?>

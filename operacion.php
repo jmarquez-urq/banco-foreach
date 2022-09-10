@@ -10,7 +10,8 @@ $cuenta= unserialize($_SESSION['cuenta']);
 
 
 $mensaje="Operación no realizada";
-switch($_POST["tipo"]) {
+switch($_POST["tipo"])
+{
     case "e":
         //Polimorfismo: No sabemos si $cuenta es CajaAhorro o CuentaCorriente,
         //pero igualmente le enviamos el mensaje extraer, que hará lo correcto
@@ -32,3 +33,4 @@ $_SESSION['cuenta'] = serialize($cuenta);
 $redirigir = 'operaciones.php?s='.$cuenta->getSaldo()."&m=$mensaje";
 
 header("Location: $redirigir");
+?>
