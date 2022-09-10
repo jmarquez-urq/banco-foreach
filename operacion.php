@@ -1,7 +1,7 @@
 <?php
 require_once 'CajaAhorro.php';
 require_once 'CuentaCorriente.php';
-
+require_once 'CajaAhorroEspecial.php';
 
 
 //Indicamos que continuamos con la sesión iniciada anteriormente...
@@ -17,12 +17,13 @@ switch($_POST["tipo"]) {
         //pero igualmente le enviamos el mensaje extraer, que hará lo correcto
         //en cualquiera de los dos casos:
         $mensaje=$cuenta->extraer($_POST['monto']);
-        $cuenta->saveMovimientos($_POST['monto'], $_POST['tipo']);
+        
         break;
     case "d":
         //Polimorfismo con el mensaje depositar:
         $mensaje=$cuenta->depositar($_POST['monto']);
-        $cuenta->saveMovimientos($_POST['monto'], $_POST['tipo']);
+        
+        
         break;
     default:
         $mensaje="Operacion inexistente";
