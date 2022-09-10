@@ -21,7 +21,8 @@
     <input name="monto" type="number"><br>
     <input type="submit" value="Realizar operación">
 </form>
-
+    <div>
+        <a href=Transacciones.php"><button>Transacciones</button></a>
+    </div>
 </body>
 </html>
-
