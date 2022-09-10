@@ -70,4 +70,5 @@ abstract class Cuenta
     public function get Transacciones()
     {    
         return $this->transacciones;
+    }
 }
