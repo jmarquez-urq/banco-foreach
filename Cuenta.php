@@ -1,5 +1,4 @@
 <?php
-
 abstract class Cuenta
 {
     /**
@@ -73,3 +72,4 @@ abstract class Cuenta
         return $this->transacciones;
     }
 }
+?>

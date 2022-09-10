@@ -39,13 +39,16 @@ class CuentaCorriente extends Cuenta
      * @return string Mensaje que especifica el resultado de la operación.
      * 
      */
-    public function extraer($monto) {
-        if ( $monto > $this->saldo + $this->topeDescubierto) {
+    public function extraer($monto)
+    {
+        if ( $monto > $this->saldo + $this->topeDescubierto)
+        {
             return "Tope de descubierto excedido";
         }
-        else {
+        else
+        {
             return parent::extraer($monto);
         }
     }
-
 }
+?>

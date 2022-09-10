@@ -37,16 +37,20 @@ class CajaAhorro extends Cuenta
      * @return string Mensaje que especifica el resultado de la operación.
      * 
      */
-    public function extraer($monto) {
-        if ($monto > $this->topeExtraccion) {
+    public function extraer($monto)
+    {
+        if ($monto > $this->topeExtraccion)
+        {
             return "Tope de extracción excedido";
         }
-        else if ( $monto > $this->saldo ) {
+        else if ( $monto > $this->saldo )
+        {
             return "Saldo insuficiente";
         }
-        else {
+        else
+        {
             return parent::extraer($monto);
         }
     }
-
 }
+?>
