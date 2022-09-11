@@ -19,9 +19,7 @@ $cuenta = unserialize($_SESSION['cuenta']);
 </p>
 <form action="operacion.php" method="post">
     <label for="saldo">Saldo de la cuenta: </label>
-    <input name="saldo" id="saldo" readonly value="<?php echo $_GET['saldo']  ?>"><br>
-
-declare(strict_types=1);
+    <input name="saldo" id="saldo" readonly value="<?php echo $_GET['s']  ?>"><br>
     <label for="tipo">Tipo de operación: </label>
     <select name="tipo">
         <option value="e">Extracción</option>
@@ -31,7 +29,9 @@ declare(strict_types=1);
     <input name="monto" type="number"><br>
     <input type="submit" value="Realizar operación">
 </form>
-
+        <?php 
+            $cuenta->movimientos();
+        ?>
 </body>
 </html>
 

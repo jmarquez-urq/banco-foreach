@@ -41,7 +41,7 @@ abstract class Cuenta
     public function depositar($monto)
     {
         $this->saldo += $monto;
-        array_push($transacciones,"+".$monto.", ");
+        $this->transacciones[] = $monto.",";
         return "El depósito se realizó correctamente.";
     }
 
@@ -54,7 +54,7 @@ abstract class Cuenta
      */
     public function extraer($monto) {
         $this->saldo -= $monto;
-        array_push($transacciones,$monto*(-1).", ");
+        $this->movimientos[] = (-1)*$monto.",";
         return "Extracción realizada correctamente.";
     }
 
@@ -68,8 +68,8 @@ abstract class Cuenta
         return $this->saldo;
     }
 
-    public function movimientos($transacciones){
-        foreach ($transacciones as $key => $i) {
+    public function movimientos(){
+        foreach ($this->transacciones as $key => $i) {
             echo ($i);
         }
     }
