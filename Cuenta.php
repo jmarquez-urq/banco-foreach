@@ -23,12 +23,12 @@ abstract class Cuenta
      * @params string $titular
      * @params int $saldo
      */
-    public function __construct($numero, $titular, $saldo, $transacciones)
+    public function __construct($numero, $titular, $saldo)
     {
         $this->numero = $numero;
         $this->titular = $titular;
         $this->saldo = $saldo;
-        $this->transacciones = array_push($transacciones,"+".$saldo.", ");
+        $this->transacciones = ["+".$this->$saldo.", "];
     }
 
     
