@@ -8,14 +8,14 @@ require_once 'Cuenta.php';
 * No permite descubierto (saldo negativo).
 *
  */
-
+session_start();
 class CajaAhorro extends Cuenta
 {
     /**
      * @var int $topeExtraccion Máximo importe permitido en cada extracción.
      */
     protected $topeExtraccion;
-
+    
     /**
      * Constructor
      * @params int $numero
@@ -45,6 +45,7 @@ class CajaAhorro extends Cuenta
             return "Saldo insuficiente";
         }
         else {
+            array_push($_SESSION['arrOperaciones'], "Extraccion de $$monto");
             return parent::extraer($monto);
         }
     }

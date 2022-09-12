@@ -7,8 +7,6 @@ require_once 'CuentaCorriente.php';
 session_start();
 //... y recuperamos la cuenta del usuario cuya sesión está activa.
 $cuenta= unserialize($_SESSION['cuenta']);
-
-
 $mensaje="Operación no realizada";
 switch($_POST["tipo"]) {
     case "e":
@@ -20,6 +18,7 @@ switch($_POST["tipo"]) {
     case "d":
         //Polimorfismo con el mensaje depositar:
         $mensaje=$cuenta->depositar($_POST['monto']);
+        array_push($_SESSION['arrOperaciones'], "Deposito de $".$_POST['monto']);
         break;
     default:
         $mensaje="Operacion inexistente";
@@ -30,5 +29,4 @@ switch($_POST["tipo"]) {
 //Sobreescribo la variable de sesión con los nuevos datos.
 $_SESSION['cuenta'] = serialize($cuenta);
 $redirigir = 'operaciones.php?s='.$cuenta->getSaldo()."&m=$mensaje";
-
 header("Location: $redirigir");
