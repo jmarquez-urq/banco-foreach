@@ -21,7 +21,29 @@
     <input name="monto" type="number"><br>
     <input type="submit" value="Realizar operación">
 </form>
-
+<input type="button" value="Ultimos Movimientos" onclick="mostrar()">
+<?php
+session_start();
+    $arr = $_SESSION['arrOperaciones'];
+    if (count($arr) > 0){
+        echo "<table style='display:none' id='tablaMovimientos' border='1'><tr><th>Registro de Operaciones</th></tr>";
+        foreach ($arr as $key => $value) {
+            echo "<tr><td>".$value."</td></tr>";
+        }
+        echo "</table>";
+    }
+?>
+<script>
+    function mostrar(){
+        tabla = document.getElementById('tablaMovimientos')
+        if (tabla.style.display == 'none') {
+            tabla.style.display = 'table'
+        }else{
+            tabla.style.display = 'none'
+        }
+        
+    }
+    </script>
 </body>
 </html>
 
