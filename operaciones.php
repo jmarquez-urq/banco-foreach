@@ -21,7 +21,13 @@
     <input name="monto" type="number"><br>
     <input type="submit" value="Realizar operación">
 </form>
-
+<?php
+    
+    if (isset($_GET['mov'])){
+        echo "Ultimas Transacciones: ";
+        echo "<br>".$_GET['mov'];
+    }  
+?>
 </body>
 </html>
 
