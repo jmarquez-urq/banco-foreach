@@ -2,7 +2,8 @@
 require_once 'CajaAhorro.php';
 require_once 'CuentaCorriente.php';
 
-if (isset($_POST['nombre']) && $_POST['nombre'] !== '' && isset($_POST['saldo'])) {
+
+if (isset($_POST['nombre']) && $_POST['nombre'] !== ' ' && isset($_POST['saldo'])) {
     if($_POST['tipo'] === "ca") {
         $cuenta = new CajaAhorro(rand(1000, 9999), $_POST['nombre'], (int) $_POST['saldo']);
     }

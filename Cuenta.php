@@ -17,6 +17,7 @@ abstract class Cuenta
 
     protected $transaccion = [];
 
+
     /*
      * Constructor
      * @param string $titular
@@ -29,7 +30,9 @@ abstract class Cuenta
         $this->numero = $numero;
         $this->titular = $titular;
         $this->saldo = $saldo;
-        $this->transaccion=["+ ".$this->saldo.", "];
+
+        $this->transaccion=["+ ".$this->saldo];
+
     }
 
     
@@ -42,7 +45,9 @@ abstract class Cuenta
     public function depositar($monto)
     {
         $this->saldo += $monto;
-        array_push($this->transaccion,"+".$monto.", ");
+
+        array_push($this->transaccion,"+".$monto);
+
         return "El depósito se realizó correctamente.";
     }
 
@@ -55,7 +60,9 @@ abstract class Cuenta
      */
     public function extraer($monto) {
         $this->saldo -= $monto;
-        array_push($this->transaccion,"-".$monto.", ");
+
+        array_push($this->transaccion,"-".$monto);
+
         return "Extracción realizada correctamente.";
     }
 
@@ -70,10 +77,20 @@ abstract class Cuenta
     }
 
 
+
     public function movimientos(){
-        echo ('ULTIMOS MOVIMIENTOS'."<br>");
-        foreach ($this->transaccion as $i) {            
-            echo ($i)."<br>";            
+        foreach ($this->transaccion as $i) {
+            if($i==0){
+                echo "<br>";
+                echo ($i)."<br>";
+                echo "________________________"."<br>"; 
+            }
+            else{ 
+                echo "<br>";       
+                echo ($i)."<br>";
+                echo "________________________"."<br>";            
+            }
         }
     }
+
 }
