@@ -15,6 +15,8 @@ abstract class Cuenta
      */
     protected $titular;
 
+    public $movimientos = [];
+
     /**
      * Constructor
      * @params int $numero
@@ -26,6 +28,9 @@ abstract class Cuenta
         $this->numero = $numero;
         $this->titular = $titular;
         $this->saldo = $saldo;
+        
+        
+        
     }
 
     
@@ -38,6 +43,7 @@ abstract class Cuenta
     public function depositar($monto)
     {
         $this->saldo += $monto;
+        $this->saveMovimientos($monto, "d");
         return "El depósito se realizó correctamente.";
     }
 
@@ -50,6 +56,7 @@ abstract class Cuenta
      */
     public function extraer($monto) {
         $this->saldo -= $monto;
+        $this->saveMovimientos($monto, "e");
         return "Extracción realizada correctamente.";
     }
 
@@ -62,4 +69,37 @@ abstract class Cuenta
     {
         return $this->saldo;
     }
+
+    public function saveMovimientos($monto, $tipo) {
+        
+
+
+        if ($tipo== "e") {
+            
+            array_push($this->movimientos, "-".$monto);
+            
+        }
+
+        if ($tipo== "d") {
+            
+             array_push($this->movimientos,"+".$monto);
+             
+        }
+
+
+    }
+
+    public function muestraMovimientos($movimientos){
+
+        echo "Movimientos de su cuenta: <br>";
+
+        foreach($movimientos as $movimiento) {
+
+            echo "$movimiento<br>";
+
+        }
+
+        echo "Saldo actual: $this->saldo";
+    
+}
 }

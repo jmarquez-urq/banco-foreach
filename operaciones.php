@@ -20,8 +20,9 @@
     <label for="monto">Monto: </label>
     <input name="monto" type="number"><br>
     <input type="submit" value="Realizar operación">
+
 </form>
+<a href="movimientos.php">Consultar movimientos</a>
 
 </body>
 </html>
-
