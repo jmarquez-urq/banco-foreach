@@ -12,6 +12,9 @@
 <form action="operacion.php" method="post">
     <label for="saldo">Saldo de la cuenta:</label>
     <input name="saldo" id="saldo" readonly value="<?php echo $_GET['s'];  ?>"><br>
+    <br>
+    <p>Últimos movimientos: <?php echo $_GET['f'];?></p>
+    <br>
     <label for="tipo">Tipo de operación: </label>
     <select name="tipo">
         <option value="e">Extracción</option>
