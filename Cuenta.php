@@ -15,6 +15,8 @@ abstract class Cuenta
      */
     protected $titular;
 
+    protected $movimientos = [];
+
     /**
      * Constructor
      * @params int $numero
@@ -67,12 +69,11 @@ abstract class Cuenta
 
     public function getMovimientos(){
         $contenido = "";
-        for($i = 0; $i < count($this->movimientos); $i++){
-            if($i != 0){
-                $contenido = $contenido . ", " . $this->movimientos[$i];
-            }
-            else $contenido = $contenido . $this->movimientos[$i];
+
+        foreach($this->movimientos as &$movimiento){
+            $contenido = $contenido . " " . $movimiento;
         }
+
         return $contenido;
      }
     public function registrarMovimiento($m, $op){
