@@ -20,6 +20,8 @@
     <label for="monto">Monto: </label>
     <input name="monto" type="number"><br>
     <input type="submit" value="Realizar operación">
+    <p>Últimos movimientos: <?php echo $_GET['l'];?></p>
+
 </form>
 
 </body>
