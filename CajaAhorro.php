@@ -8,7 +8,7 @@ require_once 'Cuenta.php';
 * No permite descubierto (saldo negativo).
 *
  */
-
+session_start();
 class CajaAhorro extends Cuenta
 {
     /**
@@ -45,8 +45,10 @@ class CajaAhorro extends Cuenta
             return "Saldo insuficiente";
         }
         else {
+            array_push($_SESSION['arrOperaciones'], "Extraccion de $monto");
             return parent::extraer($monto);
         }
+        return parent::extraer($monto);
     }
 
 }
