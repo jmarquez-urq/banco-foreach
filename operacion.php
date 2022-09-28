@@ -20,6 +20,7 @@ switch($_POST["tipo"]) {
     case "d":
         //Polimorfismo con el mensaje depositar:
         $mensaje=$cuenta->depositar($_POST['monto']);
+        array_push($_SESSION['arrOperaciones'], "Deposito de $".$_POST['monto']);
         break;
     default:
         $mensaje="Operacion inexistente";
