@@ -21,7 +21,17 @@
     <input name="monto" type="number"><br>
     <input type="submit" value="Realizar operación">
 </form>
-
+<script>
+    function mostrar(){
+        tabla = document.getElementById('tablaMovimientos')
+        if (tabla.style.display == 'none') {
+            tabla.style.display = 'table'
+        }else{
+            tabla.style.display = 'none'
+        }
+        
+    }
+    </script>
 </body>
 </html>
 
