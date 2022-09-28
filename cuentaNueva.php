@@ -20,7 +20,8 @@ else {
 //Definimos variables de sesión:
 session_start();
 $_SESSION['cuenta'] = serialize($cuenta);
-
+$arr = array();
+$_SESSION['arrOperaciones'] = $arr;
 $redirigir = 'operaciones.php?s='.$cuenta->getSaldo()."&m=Cuenta creada correctamente";
 //Redirigimos al "Home banking", enviando por GET el saldo de la cuenta:
 header("Location: $redirigir");
