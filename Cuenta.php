@@ -15,17 +15,20 @@ abstract class Cuenta
      */
     protected $titular;
 
+    protected $movimiento = [];
+
     /**
      * Constructor
      * @params int $numero
      * @params string $titular
      * @params int $saldo
      */
-    public function __construct($numero, $titular, $saldo)
+    public function __construct($numero, $titular, $saldo,)
     {
         $this->numero = $numero;
         $this->titular = $titular;
         $this->saldo = $saldo;
+        $this->movimiento = [$this->saldo];
     }
 
     
@@ -38,6 +41,7 @@ abstract class Cuenta
     public function depositar($monto)
     {
         $this->saldo += $monto;
+        $this->movimiento[] = $monto;
         return "El depósito se realizó correctamente.";
     }
 
@@ -50,6 +54,7 @@ abstract class Cuenta
      */
     public function extraer($monto) {
         $this->saldo -= $monto;
+        $this->movimiento[] = (-1)*$monto;
         return "Extracción realizada correctamente.";
     }
 
@@ -61,5 +66,12 @@ abstract class Cuenta
     public function getSaldo()
     {
         return $this->saldo;
+    }
+
+ public function movimientos(){
+
+        foreach ($this->movimiento as $mov) {
+            echo $mov . "<br>";
+        }
     }
 }
