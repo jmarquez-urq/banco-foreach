@@ -1,3 +1,10 @@
+<?php
+require_once 'CajaAhorro.php';
+require_once 'CuentaCorriente.php';
+/** recupero la sesion */
+session_start();
+$cuenta= unserialize($_SESSION['cuenta']);
+?>
 <!DOCTYPE html>
 <html lang="es-ar">
 <head>
@@ -21,7 +28,9 @@
     <input name="monto" type="number"><br>
     <input type="submit" value="Realizar operación">
 </form>
-
+<?php
+/** Invoco funcion verMovimientosTotales */
+$cuenta -> verMovimientosTotales();
+?>
 </body>
 </html>
-
