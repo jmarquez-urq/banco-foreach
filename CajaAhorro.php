@@ -1,7 +1,7 @@
 <?php
 require_once 'Cuenta.php';
 
-/**
+/*
 * Representa una Caja de Ahorro.
 * 
 * Tope de extracción fijado en un cierto monto.
@@ -11,12 +11,12 @@ require_once 'Cuenta.php';
 
 class CajaAhorro extends Cuenta
 {
-    /**
+    /*
      * @var int $topeExtraccion Máximo importe permitido en cada extracción.
      */
     protected $topeExtraccion;
 
-    /**
+    /*
      * Constructor
      * @params int $numero
      * @params string $titular
@@ -27,9 +27,10 @@ class CajaAhorro extends Cuenta
     {
         parent::__construct($numero, $titular, $saldo);
         $this->topeExtraccion = $tope;
+
     }
 
-    /**
+    /*
      * Permite realizar una extracción, disminuyendo el saldo de la cuenta
      *
      * Verifica además que el monto no supere al saldo ni al tope de extracción
