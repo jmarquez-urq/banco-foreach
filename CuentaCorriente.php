@@ -1,7 +1,7 @@
 <?php
 require_once 'Cuenta.php';
 
-/**
+/*
 * Representa una Cuenta Corriente
 * 
 * Tope de extracción sin límite
@@ -11,12 +11,12 @@ require_once 'Cuenta.php';
 
 class CuentaCorriente extends Cuenta
 {
-    /**
+    /*
      * @var int $topeDescubierto Máximo saldo negativo
      */
     protected $topeDescubierto;
 
-    /**
+    /*
      * Constructor
      * @params int $numero
      * @params string $titular
@@ -29,13 +29,13 @@ class CuentaCorriente extends Cuenta
         $this->topeDescubierto = $tope;
     }
 
-    /**
+    /*
      * Permite realizar una extracción, disminuyendo el saldo de la cuenta
      *
      * Verifica además que el monto no deje a la cuenta con un saldo por debajo
      * del tope de descubierto.
      *
-     * @param int $monto El monto a extraer
+     * @params int $monto El monto a extraer
      * @return string Mensaje que especifica el resultado de la operación.
      * 
      */
